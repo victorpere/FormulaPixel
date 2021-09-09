@@ -8,6 +8,14 @@
 import SpriteKit
 
 class Steering: ControlArea {
+    
+    // MARK: - Properties
+    
+    let steeringRange: CGFloat = .pi / 2
+    
+    var anglePerWidth: CGFloat {
+        return self.steeringRange / self.frame.width
+    }
 
     // MARK: - Initializers
     
@@ -19,4 +27,15 @@ class Steering: ControlArea {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Control methods
+    
+    override func didMove(by vector: CGVector) {
+        print("didMove Steering by \(vector)")
+        
+        // Calculate angle of rotation
+        // send angle to controlledObject
+        
+        let angle = vector.dx * self.anglePerWidth
+        self.controlledObject?.steer(by: angle)
+    }
 }

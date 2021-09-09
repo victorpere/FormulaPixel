@@ -11,8 +11,8 @@ class TrackScene: SKScene {
     
     // MARK: - Properties
     
-    let gasBrake: GasBrake
-    let steering: Steering
+    let gasBrake: ControlArea
+    let steering: ControlArea
     let playerCar: PlayerCar
     
     // MARK: - Initializers
@@ -40,6 +40,24 @@ class TrackScene: SKScene {
     // MARK: - Setup methods
     
     func setup() {
+        self.gasBrake.controlledObject = self.playerCar
+        self.steering.controlledObject = self.playerCar
+        
         self.playerCar.placeInCenter(of: self.size)
+    }
+    
+    // MARK: - UIResponder methods
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("touhesMoved ControlArea")
+        for touch in touches {
+            let movement = CGVector(from: touch.previousLocation(in: self),
+                                    to: touch.location(in: self))
+
+            let touchedNode = self.atPoint(touch.location(in: self))
+            if let control = touchedNode as? Control {
+                control.didMove(by: movement)
+            }
+        }
     }
 }

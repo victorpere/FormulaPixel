@@ -23,6 +23,9 @@
 		57A716A226E7F9B00073C0E1 /* PhysicalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A716A126E7F9B00073C0E1 /* PhysicalObject.swift */; };
 		57A716A426E7F9CE0073C0E1 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A716A326E7F9CE0073C0E1 /* Car.swift */; };
 		57A716A626E7F9EC0073C0E1 /* PlayerCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A716A526E7F9EC0073C0E1 /* PlayerCar.swift */; };
+		57A716A926EA930E0073C0E1 /* Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A716A826EA930E0073C0E1 /* Control.swift */; };
+		57A716AC26EA95A50073C0E1 /* CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A716AB26EA95A50073C0E1 /* CoreGraphics.swift */; };
+		57A716AF26EA97A40073C0E1 /* Controllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A716AE26EA97A40073C0E1 /* Controllable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,9 @@
 		57A716A126E7F9B00073C0E1 /* PhysicalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalObject.swift; sourceTree = "<group>"; };
 		57A716A326E7F9CE0073C0E1 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		57A716A526E7F9EC0073C0E1 /* PlayerCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCar.swift; sourceTree = "<group>"; };
+		57A716A826EA930E0073C0E1 /* Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Control.swift; sourceTree = "<group>"; };
+		57A716AB26EA95A50073C0E1 /* CoreGraphics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreGraphics.swift; sourceTree = "<group>"; };
+		57A716AE26EA97A40073C0E1 /* Controllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controllable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,9 +121,11 @@
 		57A0F3B326E02980002D2D8E /* FormulaPixel */ = {
 			isa = PBXGroup;
 			children = (
+				57A716AA26EA957F0073C0E1 /* Extensions */,
 				57A7169A26E7EC260073C0E1 /* Nodes */,
+				57A716AD26EA96860073C0E1 /* Scenes */,
+				57A716A726EA92FC0073C0E1 /* Protocols */,
 				57A0F3B426E02980002D2D8E /* AppDelegate.swift */,
-				57A0F3E726E029F6002D2D8E /* TrackScene.swift */,
 				57A0F3B626E02980002D2D8E /* SceneDelegate.swift */,
 				57A0F3B826E02980002D2D8E /* ViewController.swift */,
 				57A0F3BA26E02980002D2D8E /* Main.storyboard */,
@@ -158,6 +166,31 @@
 				57A716A526E7F9EC0073C0E1 /* PlayerCar.swift */,
 			);
 			path = Nodes;
+			sourceTree = "<group>";
+		};
+		57A716A726EA92FC0073C0E1 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				57A716A826EA930E0073C0E1 /* Control.swift */,
+				57A716AE26EA97A40073C0E1 /* Controllable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		57A716AA26EA957F0073C0E1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				57A716AB26EA95A50073C0E1 /* CoreGraphics.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		57A716AD26EA96860073C0E1 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				57A0F3E726E029F6002D2D8E /* TrackScene.swift */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,10 +328,13 @@
 				57A716A426E7F9CE0073C0E1 /* Car.swift in Sources */,
 				57A7169E26E7EFF60073C0E1 /* ControlArea.swift in Sources */,
 				57A0F3BF26E02980002D2D8E /* FormulaPixel.xcdatamodeld in Sources */,
+				57A716A926EA930E0073C0E1 /* Control.swift in Sources */,
+				57A716AF26EA97A40073C0E1 /* Controllable.swift in Sources */,
 				57A0F3E826E029F6002D2D8E /* TrackScene.swift in Sources */,
 				57A716A226E7F9B00073C0E1 /* PhysicalObject.swift in Sources */,
 				57A0F3B526E02980002D2D8E /* AppDelegate.swift in Sources */,
 				57A716A626E7F9EC0073C0E1 /* PlayerCar.swift in Sources */,
+				57A716AC26EA95A50073C0E1 /* CoreGraphics.swift in Sources */,
 				57A7169C26E7EC710073C0E1 /* Steering.swift in Sources */,
 				57A0F3B726E02980002D2D8E /* SceneDelegate.swift in Sources */,
 			);

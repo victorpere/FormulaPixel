@@ -18,4 +18,14 @@ class GasBrake: ControlArea {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Control methods
+    
+    override func didMove(by vector: CGVector) {
+        print("didMove GasBrake by \(vector)")
+        
+        // Calculate gas/brake position
+        // Apply gas/brake to controlledObject
+        
+    }
 }
