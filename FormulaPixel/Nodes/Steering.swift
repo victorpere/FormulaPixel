@@ -14,7 +14,6 @@ class Steering: ControlArea, Control {
     var minValue: CGFloat = -.pi / 4
     var maxValue: CGFloat = .pi / 4
     var value: CGFloat = 0
-    weak var controlledObject: Controllable?
     
     // MARK: - Properties
     
@@ -41,15 +40,6 @@ class Steering: ControlArea, Control {
         print("didMove Steering by \(vector)")
         
         self.value -= vector.dx * self.anglePerWidth
-
-        if self.value > self.maxValue {
-            self.value = self.maxValue
-        } else if self.value < self.minValue {
-            self.value = self.minValue
-        }
-        
-        print("steeringAngle \(self.value)")
-        
-        self.controlledObject?.steeringAngle = self.value
+        self.value = self.value.bound(between: self.minValue, and: self.maxValue)
     }
 }

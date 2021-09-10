@@ -9,10 +9,20 @@ import SpriteKit
 
 class PlayerCar: Car, Controllable {
     
+    // MARK: - Control properties
+    
+    weak var steeringControl: Control?
+    weak var gasBrakeControl: Control?
+    
     // MARK: - Controllable properties
     
-    var steeringAngle: CGFloat = 0
-    var gasBrake: CGFloat = 0
+    var steeringAngle: CGFloat {
+        self.steeringControl?.value ?? 0
+    }
+    
+    var gasBrake: CGFloat {
+        self.gasBrakeControl?.value ?? 0
+    }
     
     // MARK: - Properties
     
@@ -30,12 +40,7 @@ class PlayerCar: Car, Controllable {
         //print("drive PlayerCar \(self.force)")
         
         self.currentSpeed = self.currentSpeed + self.gasBrake * self.pedalRatio
-        
-        if self.currentSpeed < 0 {
-            self.currentSpeed = 0
-        } else if self.currentSpeed > self.maxSpeed {
-            self.currentSpeed = self.maxSpeed
-        }
+        self.currentSpeed = self.currentSpeed.bound(between: 0, and: self.maxSpeed)
         
         if self.currentSpeed > 0 {
             self.zRotation += self.steeringAngle * self.steeringRatio

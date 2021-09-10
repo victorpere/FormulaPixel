@@ -40,9 +40,8 @@ class TrackScene: SKScene {
     // MARK: - Setup methods
     
     func setup() {
-        self.gasBrake.controlledObject = self.playerCar
-        self.steering.controlledObject = self.playerCar
-        
+        self.playerCar.steeringControl = self.steering
+        self.playerCar.gasBrakeControl = self.gasBrake
         self.playerCar.placeInCenter(of: self.size)
     }
     

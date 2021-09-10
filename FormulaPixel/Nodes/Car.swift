@@ -18,8 +18,10 @@ class Car: PhysicalObject {
     // MARK: - Initializers
     
     init() {
+        let texture = SKTexture(imageNamed: "car_team01_top")
+        
         let size = CGSize(width: 60, height: 100)
-        super.init(texture: nil, color: .red, size: size)
+        super.init(texture: texture, color: .red, size: size)
         
         
     }

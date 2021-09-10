@@ -7,7 +7,7 @@
 
 import CoreGraphics
 
-protocol Controllable: Car {
-    var steeringAngle: CGFloat { get set }
-    var gasBrake: CGFloat { get set }
+protocol Controllable: Car {    
+    var steeringControl: Control? { get set }
+    var gasBrakeControl: Control? { get set }
 }

@@ -14,7 +14,6 @@ class GasBrake: ControlArea, Control {
     var minValue: CGFloat = -1
     var maxValue: CGFloat = 1
     var value: CGFloat = 0
-    weak var controlledObject: Controllable?
     
     // MARK: - Properties
     
@@ -35,13 +34,6 @@ class GasBrake: ControlArea, Control {
         print("didMove GasBrake by \(vector)")
         
         self.value += vector.dy
-        
-        if self.value > self.maxValue {
-            self.value = self.maxValue
-        } else if self.value < self.minValue {
-            self.value = self.minValue
-        }
-        
-        self.controlledObject?.gasBrake = self.value
+        self.value = self.value.bound(between: self.minValue, and: self.maxValue)
     }
 }

@@ -37,3 +37,23 @@ extension CGPoint {
     }
 }
 
+extension CGFloat {
+    
+    /// Returns the value bounded within provided values
+    func bound(between value1: CGFloat, and value2: CGFloat) -> CGFloat {
+        var minValue = value1
+        var maxValue = value2
+        if minValue > value2 {
+            minValue = value2
+            maxValue = value1
+        }
+        
+        if self < minValue {
+            return minValue
+        } else if self > maxValue {
+            return maxValue
+        }
+        
+        return self
+    }
+}
