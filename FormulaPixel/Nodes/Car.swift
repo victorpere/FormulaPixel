@@ -9,6 +9,12 @@ import SpriteKit
 
 class Car: PhysicalObject {
     
+    // MARK: - Properties
+    
+    let maxSpeed: CGFloat = 1
+    
+    var currentSpeed: CGFloat = 0
+    
     // MARK: - Initializers
     
     init() {

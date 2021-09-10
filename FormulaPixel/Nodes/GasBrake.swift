@@ -16,6 +16,9 @@ class GasBrake: ControlArea, Control {
     var value: CGFloat = 0
     weak var controlledObject: Controllable?
     
+    // MARK: - Properties
+    
+    
     // MARK: - Initializers
     
     init(for sceneSize: CGSize) {

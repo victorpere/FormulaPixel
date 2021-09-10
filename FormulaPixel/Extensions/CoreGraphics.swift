@@ -8,7 +8,7 @@
 import CoreGraphics
 
 extension CGVector {
-    /// Initializes CGVector by delta between to provided points
+    /// Initializes CGVector by start and end points
     init(from startPoint: CGPoint, to endPoint: CGPoint) {
         self.init(dx: endPoint.x - startPoint.x, dy: endPoint.y - startPoint.y)
     }

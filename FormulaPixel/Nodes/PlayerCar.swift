@@ -12,14 +12,16 @@ class PlayerCar: Car, Controllable {
     // MARK: - Controllable properties
     
     var steeringAngle: CGFloat = 0
-    var gasBrake: CGFloat = 0.5
+    var gasBrake: CGFloat = 0
     
     // MARK: - Properties
     
-    let steeringRatio: CGFloat = 100
+    let steeringRatio: CGFloat = 0.05
+    let pedalRatio: CGFloat = 0.1
     
-    var force: CGVector {
-        return CGVector(value: self.gasBrake, angle: self.zRotation)
+    // TODO: acceleration
+    var acceleration: CGFloat {
+        return 0
     }
     
     // MARK: - Methods
@@ -27,9 +29,21 @@ class PlayerCar: Car, Controllable {
     func drive() {
         //print("drive PlayerCar \(self.force)")
         
-        self.position.x += self.force.dx
-        self.position.y += self.force.dy
-        self.zRotation += self.steeringAngle / self.steeringRatio
+        self.currentSpeed = self.currentSpeed + self.gasBrake * self.pedalRatio
+        
+        if self.currentSpeed < 0 {
+            self.currentSpeed = 0
+        } else if self.currentSpeed > self.maxSpeed {
+            self.currentSpeed = self.maxSpeed
+        }
+        
+        if self.currentSpeed > 0 {
+            self.zRotation += self.steeringAngle * self.steeringRatio
+            let vector = CGVector(value: self.currentSpeed, angle: self.zRotation)
+            
+            self.position.x += vector.dx
+            self.position.y += vector.dy
+        }
     }
     
 }
