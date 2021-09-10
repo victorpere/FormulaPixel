@@ -38,7 +38,7 @@ class GasBrake: ControlArea, Control {
         self.value = self.value.bound(between: self.minValue, and: self.maxValue)
     }
     
-    func didMove(by value: CGFloat) {
+    func move(by value: CGFloat) {
         print("didMove GasBrake by value \(value)")
     }
     
@@ -48,9 +48,5 @@ class GasBrake: ControlArea, Control {
     
     func endApplying() {
         self.isBeingApplied = false
-    }
-    
-    func setToValue(_ value: CGFloat) {
-        
     }
 }

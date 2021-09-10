@@ -53,7 +53,7 @@ class Steering: ControlArea, Control {
         self.controller?.position.x = self.controllerPosition
     }
     
-    func didMove(by value: CGFloat) {
+    func move(by value: CGFloat) {
         print("didMove Steering by value \(value)")
         
         self.value += value
@@ -69,11 +69,5 @@ class Steering: ControlArea, Control {
     func endApplying() {
         print("set to false")
         self.isBeingApplied = false
-    }
-    
-    func setToValue(_ value: CGFloat) {
-        self.value = value
-        self.value = self.value.bound(between: self.minValue, and: self.maxValue)
-        self.controller?.position.x = self.controllerPosition
     }
 }

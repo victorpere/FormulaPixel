@@ -13,10 +13,9 @@ protocol Control: ControlArea {
     var value: CGFloat { get set }
     var isBeingApplied: Bool { get set }
     func didMove(by vector: CGVector)
-    func didMove(by value: CGFloat)
+    func move(by value: CGFloat)
     func beginApplying()
     func endApplying()
-    func setToValue(_ value: CGFloat)
 }
 
 extension Control {

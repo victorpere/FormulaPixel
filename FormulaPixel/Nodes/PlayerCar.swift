@@ -58,10 +58,10 @@ class PlayerCar: Car, Controllable {
                 }
                 
                 if (self.steeringAngle + steeringAngleChange).negative != self.steeringAngle.negative {
-                    self.steeringControl?.setToValue(0)
-                } else {
-                    self.steeringControl?.didMove(by: steeringAngleChange)
+                    steeringAngleChange = -self.steeringAngle
                 }
+                    
+                self.steeringControl?.move(by: steeringAngleChange)
             }
         }
     }
