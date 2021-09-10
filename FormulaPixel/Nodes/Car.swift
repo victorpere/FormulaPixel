@@ -12,6 +12,7 @@ class Car: PhysicalObject {
     // MARK: - Properties
     
     let maxSpeed: CGFloat = 1
+    let steeringUnwindSpeed: CGFloat = 0.005 * .pi
     
     var currentSpeed: CGFloat = 0
     

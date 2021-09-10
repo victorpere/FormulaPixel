@@ -39,6 +39,16 @@ extension CGPoint {
 
 extension CGFloat {
     
+    /// Absoloute value
+    var abs: CGFloat {
+        CGFloat(Swift.abs(Double(self)))
+    }
+    
+    /// Whether the value is negative
+    var negative: Bool {
+        return self < 0
+    }
+    
     /// Returns the value bounded within provided values
     func bound(between value1: CGFloat, and value2: CGFloat) -> CGFloat {
         var minValue = value1
@@ -56,4 +66,5 @@ extension CGFloat {
         
         return self
     }
+
 }

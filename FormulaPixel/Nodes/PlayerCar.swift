@@ -48,6 +48,20 @@ class PlayerCar: Car, Controllable {
             
             self.position.x += vector.dx
             self.position.y += vector.dy
+            
+            if self.steeringAngle != 0 && !(self.steeringControl?.isBeingApplied ?? false) {
+                // unwind steering
+                var newSteeringAngle = self.steeringAngle.abs - self.steeringUnwindSpeed
+                if self.steeringAngle < 0 {
+                    newSteeringAngle.negate()
+                }
+                
+                if newSteeringAngle.negative != self.steeringAngle.negative {
+                    newSteeringAngle = 0
+                }
+                
+                self.steeringControl?.value = newSteeringAngle
+            }
         }
     }
     

@@ -14,6 +14,7 @@ class GasBrake: ControlArea, Control {
     var minValue: CGFloat = -1
     var maxValue: CGFloat = 1
     var value: CGFloat = 0
+    var isBeingApplied: Bool = false
     
     // MARK: - Properties
     
@@ -35,5 +36,13 @@ class GasBrake: ControlArea, Control {
         
         self.value += vector.dy
         self.value = self.value.bound(between: self.minValue, and: self.maxValue)
+    }
+    
+    func beginApplying() {
+        self.isBeingApplied = true
+    }
+    
+    func endApplying() {
+        self.isBeingApplied = false
     }
 }

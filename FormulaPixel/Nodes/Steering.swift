@@ -14,6 +14,7 @@ class Steering: ControlArea, Control {
     var minValue: CGFloat = -.pi / 4
     var maxValue: CGFloat = .pi / 4
     var value: CGFloat = 0
+    var isBeingApplied: Bool = false
     
     // MARK: - Properties
     
@@ -41,5 +42,13 @@ class Steering: ControlArea, Control {
         
         self.value -= vector.dx * self.anglePerWidth
         self.value = self.value.bound(between: self.minValue, and: self.maxValue)
+    }
+    
+    func beginApplying() {
+        self.isBeingApplied = true
+    }
+    
+    func endApplying() {
+        self.isBeingApplied = false
     }
 }

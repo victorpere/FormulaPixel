@@ -47,8 +47,18 @@ class TrackScene: SKScene {
     
     // MARK: - UIResponder methods
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("touchesBegan TrackSene")
+        for touch in touches {
+            let touchedNode = self.atPoint(touch.location(in: self))
+            if let control = touchedNode as? Control {
+                control.beginApplying()
+            }
+        }
+    }
+    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("touhesMoved ControlArea")
+        print("touhesMoved TrackSene")
         for touch in touches {
             let movement = CGVector(from: touch.previousLocation(in: self),
                                     to: touch.location(in: self))
@@ -56,6 +66,16 @@ class TrackScene: SKScene {
             let touchedNode = self.atPoint(touch.location(in: self))
             if let control = touchedNode as? Control {
                 control.didMove(by: movement)
+            }
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("touchesEnded TrackScene")
+        for touch in touches {
+            let touchedNode = self.atPoint(touch.location(in: self))
+            if let control = touchedNode as? Control {
+                control.endApplying()
             }
         }
     }
