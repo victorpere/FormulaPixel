@@ -16,6 +16,8 @@ class ControlArea: SKSpriteNode {
     let horizontalAlignment: ControlAreaHorizontalAlignment
     let verticalAlignment: ControlAreaVerticalAlignment
     
+    var controller: SKSpriteNode?
+    
     // MARK: - Initializers
     
     init(for sceneSize: CGSize,

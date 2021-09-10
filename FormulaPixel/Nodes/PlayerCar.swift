@@ -51,16 +51,17 @@ class PlayerCar: Car, Controllable {
             
             if self.steeringAngle != 0 && !(self.steeringControl?.isBeingApplied ?? false) {
                 // unwind steering
-                var newSteeringAngle = self.steeringAngle.abs - self.steeringUnwindSpeed
-                if self.steeringAngle < 0 {
-                    newSteeringAngle.negate()
+                var steeringAngleChange = self.steeringUnwindSpeed
+                
+                if self.steeringAngle > 0 {
+                    steeringAngleChange.negate()
                 }
                 
-                if newSteeringAngle.negative != self.steeringAngle.negative {
-                    newSteeringAngle = 0
+                if (self.steeringAngle + steeringAngleChange).negative != self.steeringAngle.negative {
+                    self.steeringControl?.setToValue(0)
+                } else {
+                    self.steeringControl?.didMove(by: steeringAngleChange)
                 }
-                
-                self.steeringControl?.value = newSteeringAngle
             }
         }
     }

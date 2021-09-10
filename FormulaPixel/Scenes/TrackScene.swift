@@ -50,22 +50,26 @@ class TrackScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("touchesBegan TrackSene")
         for touch in touches {
-            let touchedNode = self.atPoint(touch.location(in: self))
-            if let control = touchedNode as? Control {
-                control.beginApplying()
+            let touchedNodes  = self.nodes(at: touch.location(in: self))
+            for node in touchedNodes {
+                if let control = node as? Control {
+                    control.beginApplying()
+                }
             }
         }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("touhesMoved TrackSene")
+        //print("touhesMoved TrackSene")
         for touch in touches {
             let movement = CGVector(from: touch.previousLocation(in: self),
                                     to: touch.location(in: self))
 
-            let touchedNode = self.atPoint(touch.location(in: self))
-            if let control = touchedNode as? Control {
-                control.didMove(by: movement)
+            let touchedNodes  = self.nodes(at: touch.location(in: self))
+            for node in touchedNodes {
+                if let control = node as? Control {
+                    control.didMove(by: movement)
+                }
             }
         }
     }
@@ -73,9 +77,11 @@ class TrackScene: SKScene {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("touchesEnded TrackScene")
         for touch in touches {
-            let touchedNode = self.atPoint(touch.location(in: self))
-            if let control = touchedNode as? Control {
-                control.endApplying()
+            let touchedNodes  = self.nodes(at: touch.location(in: self))
+            for node in touchedNodes {
+                if let control = node as? Control {
+                    control.endApplying()
+                }
             }
         }
     }
