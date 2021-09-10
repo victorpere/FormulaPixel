@@ -27,6 +27,7 @@ class ViewController: UIViewController {
                                 width: self.view.frame.width - self.view.safeAreaInsets.left - self.view.safeAreaInsets.right,
                                 height: self.view.frame.height - self.view.safeAreaInsets.top - self.view.safeAreaInsets.bottom)
         self.skView = SKView(frame: safeFrame)
+        self.skView.isMultipleTouchEnabled = true
         self.view.addSubview(self.skView)
         
         self.start()
