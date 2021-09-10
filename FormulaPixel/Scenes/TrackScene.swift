@@ -11,8 +11,8 @@ class TrackScene: SKScene {
     
     // MARK: - Properties
     
-    let gasBrake: ControlArea
-    let steering: ControlArea
+    let gasBrake: Control
+    let steering: Control
     let playerCar: PlayerCar
     
     // MARK: - Initializers
@@ -59,5 +59,11 @@ class TrackScene: SKScene {
                 control.didMove(by: movement)
             }
         }
+    }
+    
+    // MARK: - Scene methods
+    
+    override func update(_ currentTime: TimeInterval) {
+        self.playerCar.drive()
     }
 }

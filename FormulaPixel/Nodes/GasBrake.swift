@@ -7,12 +7,19 @@
 
 import SpriteKit
 
-class GasBrake: ControlArea {
+class GasBrake: ControlArea, Control {
+
+    // MARK: - Control properties
+    
+    var minValue: CGFloat = -1
+    var maxValue: CGFloat = 1
+    var value: CGFloat = 0
+    weak var controlledObject: Controllable?
     
     // MARK: - Initializers
     
     init(for sceneSize: CGSize) {
-        super.init(for: sceneSize, height: 100, widthMultiplier: 0.25, horizontalAlignment: .left, verticalAlignment: .bottom, texture: nil, color: .blue)
+        super.init(for: sceneSize, height: 200, widthMultiplier: 0.25, horizontalAlignment: .left, verticalAlignment: .bottom, texture: nil, color: .blue)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -21,11 +28,17 @@ class GasBrake: ControlArea {
     
     // MARK: - Control methods
     
-    override func didMove(by vector: CGVector) {
+    func didMove(by vector: CGVector) {
         print("didMove GasBrake by \(vector)")
         
-        // Calculate gas/brake position
-        // Apply gas/brake to controlledObject
+        self.value += vector.dy
         
+        if self.value > self.maxValue {
+            self.value = self.maxValue
+        } else if self.value < self.minValue {
+            self.value = self.minValue
+        }
+        
+        self.controlledObject?.gasBrake = self.value
     }
 }

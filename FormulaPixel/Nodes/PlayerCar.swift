@@ -9,19 +9,27 @@ import SpriteKit
 
 class PlayerCar: Car, Controllable {
     
-    var gasBrake: CGFloat = 0
+    // MARK: - Controllable properties
     
-    // MARK: - Controllable methods
+    var steeringAngle: CGFloat = 0
+    var gasBrake: CGFloat = 0.5
     
-    func steer(by angle: CGFloat) {
-        print("steer PlayerCar by \(angle)")
-        
-        self.zRotation += angle
+    // MARK: - Properties
+    
+    let steeringRatio: CGFloat = 100
+    
+    var force: CGVector {
+        return CGVector(value: self.gasBrake, angle: self.zRotation)
     }
     
-    func appyGasBrake(by amount: CGFloat) {
-        print("applyGasBrake by \(amount)")
+    // MARK: - Methods
+    
+    func drive() {
+        //print("drive PlayerCar \(self.force)")
         
-        self.gasBrake += amount
+        self.position.x += self.force.dx
+        self.position.y += self.force.dy
+        self.zRotation += self.steeringAngle / self.steeringRatio
     }
+    
 }

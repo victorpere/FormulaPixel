@@ -7,7 +7,7 @@
 
 import CoreGraphics
 
-protocol Controllable: PhysicalObject {
-    func steer(by angle: CGFloat)
-    func appyGasBrake(by amount: CGFloat)
+protocol Controllable: Car {
+    var steeringAngle: CGFloat { get set }
+    var gasBrake: CGFloat { get set }
 }

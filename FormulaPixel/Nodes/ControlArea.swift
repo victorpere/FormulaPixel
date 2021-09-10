@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class ControlArea: SKSpriteNode, Control {
+class ControlArea: SKSpriteNode {
     
     // MARK: - Properties
     
@@ -15,8 +15,6 @@ class ControlArea: SKSpriteNode, Control {
     let widthMultiplier: CGFloat
     let horizontalAlignment: ControlAreaHorizontalAlignment
     let verticalAlignment: ControlAreaVerticalAlignment
-    
-    weak var controlledObject: Controllable?
     
     // MARK: - Initializers
     
@@ -69,12 +67,6 @@ class ControlArea: SKSpriteNode, Control {
         case .top:
             self.position.y = sceneSize.height - self.size.height / 2
         }
-    }
-    
-    // MARK: - Control methods
-    
-    func didMove(by vector: CGVector) {
-    
     }
 }
 

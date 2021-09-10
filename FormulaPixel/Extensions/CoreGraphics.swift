@@ -12,6 +12,11 @@ extension CGVector {
     init(from startPoint: CGPoint, to endPoint: CGPoint) {
         self.init(dx: endPoint.x - startPoint.x, dy: endPoint.y - startPoint.y)
     }
+    
+    /// Initializes CGVector from its linear value and angle
+    init(value: CGFloat, angle: CGFloat) {
+        self.init(dx: -value * sin(angle), dy: value * cos(angle))
+    }
 }
 
 extension CGPoint {
