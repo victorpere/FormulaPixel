@@ -33,17 +33,17 @@ class PlayerCar: Car {
         self.brake?.value ?? 0
     }
     
-    // TODO: calculate acceleration based on power and mass
+    // TODO: calculate acceleration based on power, mass and friction (grip)
     fileprivate var acceleration: CGFloat {
         return 0.5
     }
     
-    // TODO: calculate deceleration based on friction coefficient
+    // TODO: calculate deceleration based on mass and friction
     fileprivate var deceleration: CGFloat {
         return 0.01
     }
     
-    // TODO: calculate braking based on mass
+    // TODO: calculate braking based on braking power, mass and friction
     fileprivate var braking: CGFloat {
         return 0.5
     }
