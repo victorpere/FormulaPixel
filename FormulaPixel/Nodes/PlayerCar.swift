@@ -9,13 +9,14 @@ import SpriteKit
 
 class PlayerCar: Car {
     
-    // MARK: - Control properties
+    // MARK: - Properties
     
     weak var steeringControl: Control?
     weak var throttle: Control?
     weak var brake: Control?
     
-    // MARK: - Properties
+    
+    // MARK: - Private properties
     
     fileprivate let steeringRatio: CGFloat = 0.03
     fileprivate let pedalRatio: CGFloat = 0.1
@@ -44,7 +45,11 @@ class PlayerCar: Car {
     
     // TODO: calculate braking based on mass
     fileprivate var braking: CGFloat {
-        return 1
+        return 0.5
+    }
+    
+    fileprivate var rotationSpeed: CGFloat {
+        self.steeringAngle * self.steeringRatio * sqrt(self.currentSpeed)
     }
     
     // MARK: - Methods
@@ -57,9 +62,7 @@ class PlayerCar: Car {
         self.currentSpeed = self.currentSpeed.bound(between: 0, and: self.maxSpeed)
         
         if self.currentSpeed > 0 {
-            let rotationSpeed = self.steeringAngle * self.steeringRatio * self.currentSpeed
-            
-            self.zRotation += rotationSpeed // self.steeringAngle * self.steeringRatio
+            self.zRotation += self.rotationSpeed
             let vector = CGVector(value: self.currentSpeed, angle: self.zRotation)
             
             self.position.x += vector.dx

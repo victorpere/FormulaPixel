@@ -27,6 +27,7 @@
 		57A716AC26EA95A50073C0E1 /* CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A716AB26EA95A50073C0E1 /* CoreGraphics.swift */; };
 		57A716B526ED961E0073C0E1 /* Throttle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A716B426ED961E0073C0E1 /* Throttle.swift */; };
 		57A716B726ED96440073C0E1 /* BrakePedal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A716B626ED96440073C0E1 /* BrakePedal.swift */; };
+		57A716B926EE69140073C0E1 /* Surface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A716B826EE69140073C0E1 /* Surface.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		57A716AB26EA95A50073C0E1 /* CoreGraphics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreGraphics.swift; sourceTree = "<group>"; };
 		57A716B426ED961E0073C0E1 /* Throttle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throttle.swift; sourceTree = "<group>"; };
 		57A716B626ED96440073C0E1 /* BrakePedal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrakePedal.swift; sourceTree = "<group>"; };
+		57A716B826EE69140073C0E1 /* Surface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Surface.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				57A716A826EA930E0073C0E1 /* Control.swift */,
+				57A716B826EE69140073C0E1 /* Surface.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57A0F3B926E02980002D2D8E /* ViewController.swift in Sources */,
+				57A716B926EE69140073C0E1 /* Surface.swift in Sources */,
 				57A716A026E7F7880073C0E1 /* Pedal.swift in Sources */,
 				57A716A426E7F9CE0073C0E1 /* Car.swift in Sources */,
 				57A7169E26E7EFF60073C0E1 /* ControlArea.swift in Sources */,

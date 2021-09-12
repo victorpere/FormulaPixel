@@ -11,8 +11,11 @@ class Car: PhysicalObject {
     
     // MARK: - Properties
     
+    let mass: CGFloat = 1
     let maxSpeed: CGFloat = 2
     let steeringUnwindSpeed: CGFloat = 0.005 * .pi
+    
+    weak var surface: Surface?
     
     var currentSpeed: CGFloat = 0
     
@@ -21,7 +24,7 @@ class Car: PhysicalObject {
     init() {
         let texture = SKTexture(imageNamed: "car_team01_top")
         
-        let size = CGSize(width: 60, height: 100)
+        let size = CGSize(width: 30, height: 50)
         super.init(texture: texture, color: .red, size: size)
         
         
