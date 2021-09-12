@@ -30,11 +30,11 @@ class Steering: ControlArea, Control {
 
     // MARK: - Initializers
     
-    init(for sceneSize: CGSize) {
+    init(for sceneSize: CGSize, widthMultiplier: CGFloat) {
         self.range = self.maxValue - self.minValue
         super.init(for: sceneSize,
                    height: 100,
-                   widthMultiplier: 0.75,
+                   widthMultiplier: widthMultiplier,
                    horizontalAlignment: .right,
                    verticalAlignment: .bottom,
                    horizontalOffset: 0,

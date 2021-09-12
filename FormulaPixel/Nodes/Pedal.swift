@@ -21,13 +21,13 @@ class Pedal: ControlArea, Control {
         
     // MARK: - Initializers
     
-    init(for sceneSize: CGSize, offset: CGFloat, color: UIColor) {
-        super.init(for: sceneSize, height: 100, widthMultiplier: 0.25, horizontalAlignment: .left, verticalAlignment: .bottom, horizontalOffset: 0, verticalOffset: offset, texture: nil, color: color)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+//    init(for sceneSize: CGSize, horizontalOffset: CGFloat, verticalOffset: CGFloat, color: UIColor) {
+//        super.init(for: sceneSize, height: 100, widthMultiplier: 0.25, horizontalAlignment: .left, verticalAlignment: .bottom, horizontalOffset: horizontalOffset, verticalOffset: verticalOffset, texture: nil, color: color)
+//    }
+//    
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
     // MARK: - Control methods
     

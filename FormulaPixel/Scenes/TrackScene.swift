@@ -20,9 +20,10 @@ class TrackScene: SKScene {
     // MARK: - Initializers
     
     override init(size: CGSize) {
-        self.throttle = Pedal(for: size, offset: 100, color: .blue)
-        self.brake = Pedal(for: size, offset: 0, color: .red)
-        self.steering = Steering(for: size)
+        self.brake = Pedal(for: size, height: 100, widthMultiplier: 0.1, horizontalAlignment: .left, verticalAlignment: .bottom, horizontalOffset: 0, verticalOffset: 0, texture: nil, color: .red)
+        self.throttle = Pedal(for: size, height: 100, widthMultiplier: 0.20, horizontalAlignment: .left, verticalAlignment: .bottom, horizontalOffset: size.width * 0.1, verticalOffset: 0, texture: nil, color: .blue)
+                
+        self.steering = Steering(for: size, widthMultiplier: 0.7)
         self.playerCar = PlayerCar()
         self.track = Track(trackId: "00", sceneSize: size)
         
