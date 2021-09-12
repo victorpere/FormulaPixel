@@ -17,7 +17,7 @@ class PlayerCar: Car {
     
     // MARK: - Properties
     
-    fileprivate let steeringRatio: CGFloat = 0.05
+    fileprivate let steeringRatio: CGFloat = 0.03
     fileprivate let pedalRatio: CGFloat = 0.1
     
     fileprivate var steeringAngle: CGFloat {
@@ -57,7 +57,9 @@ class PlayerCar: Car {
         self.currentSpeed = self.currentSpeed.bound(between: 0, and: self.maxSpeed)
         
         if self.currentSpeed > 0 {
-            self.zRotation += self.steeringAngle * self.steeringRatio
+            let rotationSpeed = self.steeringAngle * self.steeringRatio * self.currentSpeed
+            
+            self.zRotation += rotationSpeed // self.steeringAngle * self.steeringRatio
             let vector = CGVector(value: self.currentSpeed, angle: self.zRotation)
             
             self.position.x += vector.dx
