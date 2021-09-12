@@ -11,14 +11,16 @@ class TrackScene: SKScene {
     
     // MARK: - Properties
     
-    let gasBrake: Control
+    let throttle: Control
+    let brake: Control
     let steering: Control
     let playerCar: PlayerCar
     
     // MARK: - Initializers
     
     override init(size: CGSize) {
-        self.gasBrake = GasBrake(for: size)
+        self.throttle = Pedal(for: size, offset: 100, color: .blue)
+        self.brake = Pedal(for: size, offset: 0, color: .red)
         self.steering = Steering(for: size)
         self.playerCar = PlayerCar()
         
@@ -26,7 +28,8 @@ class TrackScene: SKScene {
         
         self.backgroundColor = .gray
         
-        self.addChild(self.gasBrake)
+        self.addChild(self.throttle)
+        self.addChild(self.brake)
         self.addChild(self.steering)
         self.addChild(self.playerCar)
         
@@ -41,7 +44,8 @@ class TrackScene: SKScene {
     
     func setup() {
         self.playerCar.steeringControl = self.steering
-        self.playerCar.gasBrakeControl = self.gasBrake
+        self.playerCar.throttle = self.throttle
+        self.playerCar.brake = self.brake
         self.playerCar.placeInCenter(of: self.size)
     }
     

@@ -19,13 +19,14 @@
 		57A0F3E826E029F6002D2D8E /* TrackScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A0F3E726E029F6002D2D8E /* TrackScene.swift */; };
 		57A7169C26E7EC710073C0E1 /* Steering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A7169B26E7EC710073C0E1 /* Steering.swift */; };
 		57A7169E26E7EFF60073C0E1 /* ControlArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A7169D26E7EFF60073C0E1 /* ControlArea.swift */; };
-		57A716A026E7F7880073C0E1 /* GasBrake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A7169F26E7F7880073C0E1 /* GasBrake.swift */; };
+		57A716A026E7F7880073C0E1 /* Pedal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A7169F26E7F7880073C0E1 /* Pedal.swift */; };
 		57A716A226E7F9B00073C0E1 /* PhysicalObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A716A126E7F9B00073C0E1 /* PhysicalObject.swift */; };
 		57A716A426E7F9CE0073C0E1 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A716A326E7F9CE0073C0E1 /* Car.swift */; };
 		57A716A626E7F9EC0073C0E1 /* PlayerCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A716A526E7F9EC0073C0E1 /* PlayerCar.swift */; };
 		57A716A926EA930E0073C0E1 /* Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A716A826EA930E0073C0E1 /* Control.swift */; };
 		57A716AC26EA95A50073C0E1 /* CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A716AB26EA95A50073C0E1 /* CoreGraphics.swift */; };
-		57A716AF26EA97A40073C0E1 /* Controllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A716AE26EA97A40073C0E1 /* Controllable.swift */; };
+		57A716B526ED961E0073C0E1 /* Throttle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A716B426ED961E0073C0E1 /* Throttle.swift */; };
+		57A716B726ED96440073C0E1 /* BrakePedal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A716B626ED96440073C0E1 /* BrakePedal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,13 +65,14 @@
 		57A0F3E726E029F6002D2D8E /* TrackScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackScene.swift; sourceTree = "<group>"; };
 		57A7169B26E7EC710073C0E1 /* Steering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steering.swift; sourceTree = "<group>"; };
 		57A7169D26E7EFF60073C0E1 /* ControlArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlArea.swift; sourceTree = "<group>"; };
-		57A7169F26E7F7880073C0E1 /* GasBrake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasBrake.swift; sourceTree = "<group>"; };
+		57A7169F26E7F7880073C0E1 /* Pedal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pedal.swift; sourceTree = "<group>"; };
 		57A716A126E7F9B00073C0E1 /* PhysicalObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalObject.swift; sourceTree = "<group>"; };
 		57A716A326E7F9CE0073C0E1 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		57A716A526E7F9EC0073C0E1 /* PlayerCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCar.swift; sourceTree = "<group>"; };
 		57A716A826EA930E0073C0E1 /* Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Control.swift; sourceTree = "<group>"; };
 		57A716AB26EA95A50073C0E1 /* CoreGraphics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreGraphics.swift; sourceTree = "<group>"; };
-		57A716AE26EA97A40073C0E1 /* Controllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controllable.swift; sourceTree = "<group>"; };
+		57A716B426ED961E0073C0E1 /* Throttle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throttle.swift; sourceTree = "<group>"; };
+		57A716B626ED96440073C0E1 /* BrakePedal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrakePedal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,12 +160,14 @@
 		57A7169A26E7EC260073C0E1 /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
-				57A7169F26E7F7880073C0E1 /* GasBrake.swift */,
+				57A7169F26E7F7880073C0E1 /* Pedal.swift */,
 				57A7169B26E7EC710073C0E1 /* Steering.swift */,
 				57A7169D26E7EFF60073C0E1 /* ControlArea.swift */,
 				57A716A126E7F9B00073C0E1 /* PhysicalObject.swift */,
 				57A716A326E7F9CE0073C0E1 /* Car.swift */,
 				57A716A526E7F9EC0073C0E1 /* PlayerCar.swift */,
+				57A716B426ED961E0073C0E1 /* Throttle.swift */,
+				57A716B626ED96440073C0E1 /* BrakePedal.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -172,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				57A716A826EA930E0073C0E1 /* Control.swift */,
-				57A716AE26EA97A40073C0E1 /* Controllable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -324,18 +327,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				57A0F3B926E02980002D2D8E /* ViewController.swift in Sources */,
-				57A716A026E7F7880073C0E1 /* GasBrake.swift in Sources */,
+				57A716A026E7F7880073C0E1 /* Pedal.swift in Sources */,
 				57A716A426E7F9CE0073C0E1 /* Car.swift in Sources */,
 				57A7169E26E7EFF60073C0E1 /* ControlArea.swift in Sources */,
 				57A0F3BF26E02980002D2D8E /* FormulaPixel.xcdatamodeld in Sources */,
 				57A716A926EA930E0073C0E1 /* Control.swift in Sources */,
-				57A716AF26EA97A40073C0E1 /* Controllable.swift in Sources */,
+				57A716B726ED96440073C0E1 /* BrakePedal.swift in Sources */,
 				57A0F3E826E029F6002D2D8E /* TrackScene.swift in Sources */,
 				57A716A226E7F9B00073C0E1 /* PhysicalObject.swift in Sources */,
 				57A0F3B526E02980002D2D8E /* AppDelegate.swift in Sources */,
 				57A716A626E7F9EC0073C0E1 /* PlayerCar.swift in Sources */,
 				57A716AC26EA95A50073C0E1 /* CoreGraphics.swift in Sources */,
 				57A7169C26E7EC710073C0E1 /* Steering.swift in Sources */,
+				57A716B526ED961E0073C0E1 /* Throttle.swift in Sources */,
 				57A0F3B726E02980002D2D8E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

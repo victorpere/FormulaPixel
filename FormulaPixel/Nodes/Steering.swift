@@ -32,7 +32,15 @@ class Steering: ControlArea, Control {
     
     init(for sceneSize: CGSize) {
         self.steeringRange = self.maxValue - self.minValue
-        super.init(for: sceneSize, height: 100, widthMultiplier: 0.75, horizontalAlignment: .right, verticalAlignment: .bottom, texture: nil, color: .green)
+        super.init(for: sceneSize,
+                   height: 100,
+                   widthMultiplier: 0.75,
+                   horizontalAlignment: .right,
+                   verticalAlignment: .bottom,
+                   horizontalOffset: 0,
+                   verticalOffset: 0,
+                   texture: nil,
+                   color: .green)
         
         self.controller = SKSpriteNode(texture: nil, color: .yellow, size: CGSize(width: 20, height: self.frame.height))
         self.position = CGPoint(x: self.frame.midX, y: self.frame.midY)

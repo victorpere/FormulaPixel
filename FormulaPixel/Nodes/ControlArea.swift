@@ -15,6 +15,8 @@ class ControlArea: SKSpriteNode {
     let widthMultiplier: CGFloat
     let horizontalAlignment: ControlAreaHorizontalAlignment
     let verticalAlignment: ControlAreaVerticalAlignment
+    let horizontalOffset: CGFloat
+    let verticalOffset: CGFloat
     
     var controller: SKSpriteNode?
     
@@ -25,6 +27,8 @@ class ControlArea: SKSpriteNode {
          widthMultiplier: CGFloat,
          horizontalAlignment: ControlAreaHorizontalAlignment,
          verticalAlignment: ControlAreaVerticalAlignment,
+         horizontalOffset: CGFloat,
+         verticalOffset: CGFloat,
          texture: SKTexture?,
          color: UIColor) {
         
@@ -42,6 +46,8 @@ class ControlArea: SKSpriteNode {
         
         self.horizontalAlignment = horizontalAlignment
         self.verticalAlignment = verticalAlignment
+        self.horizontalOffset = horizontalOffset
+        self.verticalOffset = verticalOffset
         
         let size = CGSize(width: sceneSize.width * self.widthMultiplier, height: self.height)
         super.init(texture: texture, color: color, size: size)
@@ -69,6 +75,9 @@ class ControlArea: SKSpriteNode {
         case .top:
             self.position.y = sceneSize.height - self.size.height / 2
         }
+        
+        self.position.x += self.horizontalOffset
+        self.position.y += self.verticalOffset
     }
 }
 
