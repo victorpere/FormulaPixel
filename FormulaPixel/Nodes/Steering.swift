@@ -18,20 +18,20 @@ class Steering: ControlArea, Control {
     
     // MARK: - Properties
     
-    let steeringRange: CGFloat
+    fileprivate let range: CGFloat
     
-    var anglePerWidth: CGFloat {
-        return self.steeringRange / self.frame.width
+    fileprivate var anglePerWidth: CGFloat {
+        return self.range / self.frame.width
     }
     
-    fileprivate var controllerPosition: CGFloat {
+    fileprivate var indicatorPosition: CGFloat {
         -self.value / self.anglePerWidth
     }
 
     // MARK: - Initializers
     
     init(for sceneSize: CGSize) {
-        self.steeringRange = self.maxValue - self.minValue
+        self.range = self.maxValue - self.minValue
         super.init(for: sceneSize,
                    height: 100,
                    widthMultiplier: 0.75,
@@ -42,9 +42,9 @@ class Steering: ControlArea, Control {
                    texture: nil,
                    color: .green)
         
-        self.controller = SKSpriteNode(texture: nil, color: .yellow, size: CGSize(width: 20, height: self.frame.height))
+        self.indicator = SKSpriteNode(texture: nil, color: .yellow, size: CGSize(width: 20, height: self.frame.height))
         self.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
-        self.addChild(self.controller!)
+        self.addChild(self.indicator!)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -53,12 +53,12 @@ class Steering: ControlArea, Control {
     
     // MARK: - Control methods
     
-    func didMove(by vector: CGVector) {
+    func move(by vector: CGVector) {
         print("didMove Steering by vector \(vector)")
         
         self.value -= vector.dx * self.anglePerWidth
         self.value = self.value.bound(between: self.minValue, and: self.maxValue)
-        self.controller?.position.x = self.controllerPosition
+        self.indicator?.position.x = self.indicatorPosition
     }
     
     func move(by value: CGFloat) {
@@ -66,16 +66,16 @@ class Steering: ControlArea, Control {
         
         self.value += value
         self.value = self.value.bound(between: self.minValue, and: self.maxValue)
-        self.controller?.position.x = self.controllerPosition
+        self.indicator?.position.x = self.indicatorPosition
     }
     
     func beginApplying() {
-        print("set to true")
+        print("beginApplying Steering")
         self.isBeingApplied = true
     }
     
     func endApplying() {
-        print("set to false")
+        print("endApplying Steering")
         self.isBeingApplied = false
     }
 }

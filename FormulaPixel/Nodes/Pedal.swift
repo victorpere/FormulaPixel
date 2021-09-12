@@ -31,7 +31,7 @@ class Pedal: ControlArea, Control {
     
     // MARK: - Control methods
     
-    func didMove(by vector: CGVector) {
+    func move(by vector: CGVector) {
         print("didMove Pedal by vector \(vector)")
         
     }

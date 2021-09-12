@@ -12,7 +12,7 @@ protocol Control: ControlArea {
     var maxValue: CGFloat { get }
     var value: CGFloat { get set }
     var isBeingApplied: Bool { get set }
-    func didMove(by vector: CGVector)
+    func move(by vector: CGVector)
     func move(by value: CGFloat)
     func beginApplying()
     func endApplying()

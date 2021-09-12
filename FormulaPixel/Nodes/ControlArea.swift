@@ -18,7 +18,7 @@ class ControlArea: SKSpriteNode {
     let horizontalOffset: CGFloat
     let verticalOffset: CGFloat
     
-    var controller: SKSpriteNode?
+    var indicator: SKSpriteNode?
     
     // MARK: - Initializers
     

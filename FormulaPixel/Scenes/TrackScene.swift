@@ -72,7 +72,7 @@ class TrackScene: SKScene {
             let touchedNodes  = self.nodes(at: touch.location(in: self))
             for node in touchedNodes {
                 if let control = node as? Control {
-                    control.didMove(by: movement)
+                    control.move(by: movement)
                 }
             }
         }

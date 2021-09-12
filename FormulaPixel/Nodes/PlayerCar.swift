@@ -15,37 +15,35 @@ class PlayerCar: Car {
     weak var throttle: Control?
     weak var brake: Control?
     
-    // MARK: - Controllable properties
+    // MARK: - Properties
     
-    var steeringAngle: CGFloat {
+    fileprivate let steeringRatio: CGFloat = 0.05
+    fileprivate let pedalRatio: CGFloat = 0.1
+    
+    fileprivate var steeringAngle: CGFloat {
         self.steeringControl?.value ?? 0
     }
     
-    var throttleValue: CGFloat {
+    fileprivate var throttleValue: CGFloat {
         self.throttle?.value ?? 0
     }
     
-    var brakeValue: CGFloat {
+    fileprivate var brakeValue: CGFloat {
         self.brake?.value ?? 0
     }
     
-    // MARK: - Properties
-    
-    let steeringRatio: CGFloat = 0.05
-    let pedalRatio: CGFloat = 0.1
-    
     // TODO: calculate acceleration based on power and mass
-    var acceleration: CGFloat {
+    fileprivate var acceleration: CGFloat {
         return 0.5
     }
     
     // TODO: calculate deceleration based on friction coefficient
-    var deceleration: CGFloat {
+    fileprivate var deceleration: CGFloat {
         return 0.01
     }
     
     // TODO: calculate braking based on mass
-    var braking: CGFloat {
+    fileprivate var braking: CGFloat {
         return 1
     }
     
