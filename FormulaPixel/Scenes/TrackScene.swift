@@ -15,6 +15,7 @@ class TrackScene: SKScene {
     let brake: Control
     let steering: Control
     let playerCar: PlayerCar
+    let track: Track
     
     // MARK: - Initializers
     
@@ -23,15 +24,17 @@ class TrackScene: SKScene {
         self.brake = Pedal(for: size, offset: 0, color: .red)
         self.steering = Steering(for: size)
         self.playerCar = PlayerCar()
+        self.track = Track(trackId: "00", sceneSize: size)
         
         super.init(size: size)
         
-        self.backgroundColor = .gray
+        self.backgroundColor = .lightGray
         
+        self.addChild(self.track)
+        self.addChild(self.playerCar)
         self.addChild(self.throttle)
         self.addChild(self.brake)
         self.addChild(self.steering)
-        self.addChild(self.playerCar)
         
         self.setup()
     }
@@ -46,7 +49,10 @@ class TrackScene: SKScene {
         self.playerCar.steeringControl = self.steering
         self.playerCar.throttle = self.throttle
         self.playerCar.brake = self.brake
-        self.playerCar.placeInCenter(of: self.size)
+        //self.playerCar.placeInCenter(of: self.size)
+        
+        self.playerCar.position = CGPoint(x: 56, y: 360)
+        self.playerCar.zPosition = self.track.zPosition + 1
     }
     
     // MARK: - UIResponder methods
@@ -54,6 +60,7 @@ class TrackScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("touchesBegan TrackSene")
         for touch in touches {
+            print("touched at \(touch.location(in: self))")
             let touchedNodes  = self.nodes(at: touch.location(in: self))
             for node in touchedNodes {
                 if let control = node as? Control {

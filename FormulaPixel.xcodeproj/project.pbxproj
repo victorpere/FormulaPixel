@@ -28,6 +28,8 @@
 		57A716B526ED961E0073C0E1 /* Throttle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A716B426ED961E0073C0E1 /* Throttle.swift */; };
 		57A716B726ED96440073C0E1 /* BrakePedal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A716B626ED96440073C0E1 /* BrakePedal.swift */; };
 		57A716B926EE69140073C0E1 /* Surface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A716B826EE69140073C0E1 /* Surface.swift */; };
+		57A716BC26EE85030073C0E1 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A716BB26EE85030073C0E1 /* Track.swift */; };
+		57A716BE26EE88FF0073C0E1 /* ImmovableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A716BD26EE88FE0073C0E1 /* ImmovableNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		57A716B426ED961E0073C0E1 /* Throttle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throttle.swift; sourceTree = "<group>"; };
 		57A716B626ED96440073C0E1 /* BrakePedal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrakePedal.swift; sourceTree = "<group>"; };
 		57A716B826EE69140073C0E1 /* Surface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Surface.swift; sourceTree = "<group>"; };
+		57A716BB26EE85030073C0E1 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		57A716BD26EE88FE0073C0E1 /* ImmovableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmovableNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,7 @@
 		57A0F3B326E02980002D2D8E /* FormulaPixel */ = {
 			isa = PBXGroup;
 			children = (
+				57A716BA26EE84EB0073C0E1 /* Tracks */,
 				57A716AA26EA957F0073C0E1 /* Extensions */,
 				57A7169A26E7EC260073C0E1 /* Nodes */,
 				57A716AD26EA96860073C0E1 /* Scenes */,
@@ -170,6 +175,7 @@
 				57A716A526E7F9EC0073C0E1 /* PlayerCar.swift */,
 				57A716B426ED961E0073C0E1 /* Throttle.swift */,
 				57A716B626ED96440073C0E1 /* BrakePedal.swift */,
+				57A716BD26EE88FE0073C0E1 /* ImmovableNode.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -197,6 +203,14 @@
 				57A0F3E726E029F6002D2D8E /* TrackScene.swift */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		57A716BA26EE84EB0073C0E1 /* Tracks */ = {
+			isa = PBXGroup;
+			children = (
+				57A716BB26EE85030073C0E1 /* Track.swift */,
+			);
+			path = Tracks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,9 +351,11 @@
 				57A0F3BF26E02980002D2D8E /* FormulaPixel.xcdatamodeld in Sources */,
 				57A716A926EA930E0073C0E1 /* Control.swift in Sources */,
 				57A716B726ED96440073C0E1 /* BrakePedal.swift in Sources */,
+				57A716BE26EE88FF0073C0E1 /* ImmovableNode.swift in Sources */,
 				57A0F3E826E029F6002D2D8E /* TrackScene.swift in Sources */,
 				57A716A226E7F9B00073C0E1 /* PhysicalObject.swift in Sources */,
 				57A0F3B526E02980002D2D8E /* AppDelegate.swift in Sources */,
+				57A716BC26EE85030073C0E1 /* Track.swift in Sources */,
 				57A716A626E7F9EC0073C0E1 /* PlayerCar.swift in Sources */,
 				57A716AC26EA95A50073C0E1 /* CoreGraphics.swift in Sources */,
 				57A7169C26E7EC710073C0E1 /* Steering.swift in Sources */,

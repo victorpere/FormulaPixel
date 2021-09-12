@@ -54,7 +54,7 @@ class Steering: ControlArea, Control {
     // MARK: - Control methods
     
     func move(by vector: CGVector) {
-        print("didMove Steering by vector \(vector)")
+        //print("didMove Steering by vector \(vector)")
         
         self.value -= vector.dx * self.anglePerWidth
         self.value = self.value.bound(between: self.minValue, and: self.maxValue)
@@ -62,7 +62,7 @@ class Steering: ControlArea, Control {
     }
     
     func move(by value: CGFloat) {
-        print("didMove Steering by value \(value)")
+        //print("didMove Steering by value \(value)")
         
         self.value += value
         self.value = self.value.bound(between: self.minValue, and: self.maxValue)

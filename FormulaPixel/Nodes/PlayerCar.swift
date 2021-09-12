@@ -55,7 +55,7 @@ class PlayerCar: Car {
     // MARK: - Methods
     
     func drive() {
-        //print("drive PlayerCar \(self.force)")
+        print("drive PlayerCar \(self.position)")
         self.currentSpeed += self.throttleValue * self.pedalRatio * self.acceleration
         self.currentSpeed -= self.deceleration
         self.currentSpeed -= self.brakeValue * self.pedalRatio * self.braking
