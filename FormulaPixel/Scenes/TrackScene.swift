@@ -47,6 +47,9 @@ class TrackScene: SKScene {
     // MARK: - Setup methods
     
     func setup() {
+        self.brake.name = "Brake"
+        self.throttle.name = "Throttle"
+        
         self.playerCar.steeringControl = self.steering
         self.playerCar.throttle = self.throttle
         self.playerCar.brake = self.brake
@@ -59,9 +62,8 @@ class TrackScene: SKScene {
     // MARK: - UIResponder methods
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("touchesBegan TrackSene")
+        //print("touchesBegan TrackSene")
         for touch in touches {
-            print("touched at \(touch.location(in: self))")
             let touchedNodes  = self.nodes(at: touch.location(in: self))
             for node in touchedNodes {
                 if let control = node as? Control {
@@ -87,7 +89,7 @@ class TrackScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("touchesEnded TrackScene")
+        //print("touchesEnded TrackScene")
         for touch in touches {
             let touchedNodes  = self.nodes(at: touch.location(in: self))
             for node in touchedNodes {

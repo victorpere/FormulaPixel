@@ -24,7 +24,7 @@ class Pedal: ControlArea, Control {
 //    init(for sceneSize: CGSize, horizontalOffset: CGFloat, verticalOffset: CGFloat, color: UIColor) {
 //        super.init(for: sceneSize, height: 100, widthMultiplier: 0.25, horizontalAlignment: .left, verticalAlignment: .bottom, horizontalOffset: horizontalOffset, verticalOffset: verticalOffset, texture: nil, color: color)
 //    }
-//    
+//
 //    required init?(coder aDecoder: NSCoder) {
 //        fatalError("init(coder:) has not been implemented")
 //    }
@@ -32,22 +32,21 @@ class Pedal: ControlArea, Control {
     // MARK: - Control methods
     
     func move(by vector: CGVector) {
-        print("didMove Pedal by vector \(vector)")
-        
+
     }
     
     func move(by value: CGFloat) {
-        print("didMove Pedal by value \(value)")
+
     }
     
     func beginApplying() {
-        print("beginApplying Pedal")
+        print("beginApplying Pedal \(self.name ?? "")")
         self.isBeingApplied = true
         self.value = self.maxValue
     }
     
     func endApplying() {
-        print("endApplying Pedal")
+        print("endApplying Pedal \(self.name ?? "")")
         self.isBeingApplied = false
         self.value = self.minValue
     }

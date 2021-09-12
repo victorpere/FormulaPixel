@@ -12,7 +12,7 @@ class Car: PhysicalObject {
     // MARK: - Properties
     
     let mass: CGFloat = 1
-    let maxSpeed: CGFloat = 2
+    let maxSpeed: CGFloat = 3
     let steeringUnwindSpeed: CGFloat = 0.005 * .pi
     
     weak var surface: Surface?
@@ -33,11 +33,5 @@ class Car: PhysicalObject {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    // MARK: - Methods
-    
-    func placeInCenter(of sceneSize: CGSize) {
-        self.position.x = sceneSize.width / 2
-        self.position.y = sceneSize.height / 2
-    }
+
 }

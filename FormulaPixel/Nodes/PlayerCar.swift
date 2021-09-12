@@ -55,7 +55,6 @@ class PlayerCar: Car {
     // MARK: - Methods
     
     func drive() {
-        print("drive PlayerCar \(self.position)")
         self.currentSpeed += self.throttleValue * self.pedalRatio * self.acceleration
         self.currentSpeed -= self.deceleration
         self.currentSpeed -= self.brakeValue * self.pedalRatio * self.braking
@@ -67,22 +66,26 @@ class PlayerCar: Car {
             
             self.position.x += vector.dx
             self.position.y += vector.dy
-            
-            if self.steeringAngle != 0 && !(self.steeringControl?.isBeingApplied ?? false) {
-                // unwind steering
-                var steeringAngleChange = self.steeringUnwindSpeed
-                
-                if self.steeringAngle > 0 {
-                    steeringAngleChange.negate()
-                }
-                
-                if (self.steeringAngle + steeringAngleChange).negative != self.steeringAngle.negative {
-                    steeringAngleChange = -self.steeringAngle
-                }
-                    
-                self.steeringControl?.move(by: steeringAngleChange)
-            }
         }
+        
+        self.unwindSteering()
     }
     
+    // MARK: - Private methods
+    
+    fileprivate func unwindSteering() {
+        if self.steeringAngle != 0 && !(self.steeringControl?.isBeingApplied ?? false) {
+            var steeringAngleChange = self.steeringUnwindSpeed
+            
+            if self.steeringAngle > 0 {
+                steeringAngleChange.negate()
+            }
+            
+            if (self.steeringAngle + steeringAngleChange).negative != self.steeringAngle.negative {
+                steeringAngleChange = -self.steeringAngle
+            }
+                
+            self.steeringControl?.move(by: steeringAngleChange)
+        }
+    }
 }
