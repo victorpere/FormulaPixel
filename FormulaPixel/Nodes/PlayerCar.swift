@@ -109,7 +109,7 @@ class PlayerCar: Car {
         
         self.unwindSteering()
         
-        self.debugNode.text = String(format: "%.1f", self.linearSpeed)
+        self.debugNode.text = String(format: "%.1f", self.steeringAngle)
     }
     
     func didCollide(with collisionNormal: CGVector) {

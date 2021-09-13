@@ -18,10 +18,11 @@ class Steering: ControlArea, Control {
     
     // MARK: - Properties
     
+    fileprivate let deadZone: CGFloat
     fileprivate let range: CGFloat
     
     fileprivate var anglePerWidth: CGFloat {
-        return self.range / self.frame.width
+        return self.range / (self.frame.width - self.deadZone * 2)
     }
     
     fileprivate var indicatorPosition: CGFloat {
@@ -31,14 +32,17 @@ class Steering: ControlArea, Control {
     // MARK: - Initializers
     
     init(for sceneSize: CGSize,
+         height: CGFloat,
          widthMultiplier: CGFloat,
          horizontalAlignment: AreaHorizontalAlignment,
          verticalAlignment: AreaVerticalAlignment,
          horizontalOffset: CGFloat,
-         verticalOffset: CGFloat) {
+         verticalOffset: CGFloat,
+         deadZone: CGFloat) {
         self.range = self.maxValue - self.minValue
+        self.deadZone = deadZone
         super.init(for: sceneSize,
-                   height: 100,
+                   height: height,
                    widthMultiplier: widthMultiplier,
                    horizontalAlignment: horizontalAlignment,
                    verticalAlignment: verticalAlignment,
