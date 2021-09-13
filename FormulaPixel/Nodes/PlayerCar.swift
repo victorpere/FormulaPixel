@@ -54,7 +54,7 @@ class PlayerCar: Car {
     }
     
     fileprivate var rotationSpeed: CGFloat {
-        self.steeringAngle * self.steeringRatio * sqrt(self.linearSpeed)
+        self.steeringAngle * self.steeringRatio * sqrt(self.linearSpeed.magnitude)
     }
     
     fileprivate var velocity: CGVector {
@@ -83,14 +83,26 @@ class PlayerCar: Car {
     // MARK: - Methods
     
     func drive() {
-        self.linearSpeed += self.throttleValue * self.pedalRatio * self.acceleration
-        self.linearSpeed -= self.deceleration
-        self.linearSpeed -= self.brakeValue * self.pedalRatio * self.braking
-        self.linearSpeed = self.linearSpeed.bound(between: 0, and: self.maxSpeed)
+        var speed = self.linearSpeed
+        if self.linearSpeed <= 0 &&
+            (self.brake?.isBeingApplied ?? false) &&
+            !(self.throttle?.isBeingApplied ?? false) {
+            // Reverse
+            speed -= self.brakeValue * self.pedalRatio * self.acceleration
+            speed += self.deceleration
+            self.linearSpeed = speed.bound(between: -self.maxReverseSpeed, and: 0)
+        } else if self.linearSpeed > 0  ||
+                    (self.throttle?.isBeingApplied ?? false) ||
+                    (self.brake?.isBeingApplied ?? false) {
+            speed += self.throttleValue * self.pedalRatio * self.acceleration
+            speed -= self.deceleration
+            speed -= self.brakeValue * self.pedalRatio * self.braking
+            self.linearSpeed = speed.bound(between: 0, and: self.maxSpeed)
+        }
         
-        if self.linearSpeed > 0 {
+        if self.linearSpeed != 0 {
             self.zRotation += self.rotationSpeed
-            
+
             self.position.x += self.velocity.dx
             self.position.y += self.velocity.dy
         }
@@ -115,7 +127,7 @@ class PlayerCar: Car {
                 steeringAngleChange.negate()
             }
             
-            if (self.steeringAngle + steeringAngleChange).negative != self.steeringAngle.negative {
+            if (self.steeringAngle + steeringAngleChange).sign != self.steeringAngle.sign {
                 steeringAngleChange = -self.steeringAngle
             }
                 
