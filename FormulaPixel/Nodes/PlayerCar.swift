@@ -18,7 +18,7 @@ class PlayerCar: Car {
     
     // MARK: - Private properties
     
-    fileprivate let steeringRatio: CGFloat = 0.03
+    fileprivate let steeringRatio: CGFloat = 0.02
     fileprivate let pedalRatio: CGFloat = 0.1
     
     fileprivate var steeringAngle: CGFloat {
@@ -40,12 +40,12 @@ class PlayerCar: Car {
     
     // TODO: calculate deceleration based on mass and friction
     fileprivate var deceleration: CGFloat {
-        return 0.01
+        return 0.02
     }
     
     // TODO: calculate braking based on braking power, mass and friction
     fileprivate var braking: CGFloat {
-        return 0.5
+        return 0.4
     }
     
     // TODO: calculate based on mass and friction
@@ -59,6 +59,25 @@ class PlayerCar: Car {
     
     fileprivate var velocity: CGVector {
         CGVector(value: self.linearSpeed, angle: self.zRotation)
+    }
+    
+    fileprivate var debugNode: SKLabelNode
+    
+    // MARK: - Initializers
+    
+    override init() {
+        self.debugNode = SKLabelNode(fontNamed: "Helvetica")
+        super.init()
+        
+        self.debugNode.isHidden = true
+        self.debugNode.fontColor = .green
+        self.debugNode.fontSize = 14
+        self.debugNode.position = self.position
+        self.addChild(self.debugNode)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Methods
@@ -77,6 +96,8 @@ class PlayerCar: Car {
         }
         
         self.unwindSteering()
+        
+        self.debugNode.text = String(format: "%.1f", self.linearSpeed)
     }
     
     func didCollide(with collisionNormal: CGVector) {

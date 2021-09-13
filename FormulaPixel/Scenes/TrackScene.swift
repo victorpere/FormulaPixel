@@ -111,7 +111,7 @@ class TrackScene: SKScene {
 
 extension TrackScene: SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
-        print("contact \(contact.contactNormal)")
+        //print("contact \(contact.contactNormal)")
         let bodies = [contact.bodyA, contact.bodyB]
         for body in bodies {
             if body === self.playerCar.physicsBody {
