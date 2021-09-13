@@ -81,10 +81,16 @@ class TrackScene: SKScene {
             let movement = CGVector(from: touch.previousLocation(in: self),
                                     to: touch.location(in: self))
 
+            let previouslyTouchedNodes = self.nodes(at: touch.previousLocation(in: self))
             let touchedNodes  = self.nodes(at: touch.location(in: self))
             for node in touchedNodes {
                 if let control = node as? Control {
                     control.move(by: movement)
+                }
+            }
+            for node in previouslyTouchedNodes {
+                if let control = node as? Control, !touchedNodes.contains(node) {
+                    control.endApplying()
                 }
             }
         }
