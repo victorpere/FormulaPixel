@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class Track: ImmovableNode {
+class Track: ImmovableArea {
     
     
     
@@ -26,8 +26,11 @@ class Track: ImmovableNode {
         physicsBodies.append(SKPhysicsBody(texture: SKTexture(imageNamed: "track\(trackId)outer02"), size: self.size))
         physicsBodies.append(SKPhysicsBody(texture: SKTexture(imageNamed: "track\(trackId)inner"), size: self.size))
         
-        self.physicsBody = SKPhysicsBody(bodies: physicsBodies)        
+        self.physicsBody = SKPhysicsBody(bodies: physicsBodies)
         self.physicsBody?.isDynamic = false
+        self.physicsBody?.friction = 1.0
+        self.physicsBody?.categoryBitMask = ObjectType.track.rawValue
+        self.physicsBody?.contactTestBitMask = ObjectType.car.rawValue
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class ControlArea: ImmovableNode {
+class ControlArea: ImmovableArea {
     
     // MARK: - Properties
     

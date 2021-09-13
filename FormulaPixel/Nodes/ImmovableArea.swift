@@ -7,13 +7,13 @@
 
 import SpriteKit
 
-class ImmovableNode: SKSpriteNode {
+class ImmovableArea: SKSpriteNode {
     // MARK: - Properties
     
     let height: CGFloat
     let widthMultiplier: CGFloat
-    let horizontalAlignment: ControlAreaHorizontalAlignment
-    let verticalAlignment: ControlAreaVerticalAlignment
+    let horizontalAlignment: AreaHorizontalAlignment
+    let verticalAlignment: AreaVerticalAlignment
     let horizontalOffset: CGFloat
     let verticalOffset: CGFloat
     
@@ -22,8 +22,8 @@ class ImmovableNode: SKSpriteNode {
     init(for sceneSize: CGSize,
          height: CGFloat,
          widthMultiplier: CGFloat,
-         horizontalAlignment: ControlAreaHorizontalAlignment,
-         verticalAlignment: ControlAreaVerticalAlignment,
+         horizontalAlignment: AreaHorizontalAlignment,
+         verticalAlignment: AreaVerticalAlignment,
          horizontalOffset: CGFloat,
          verticalOffset: CGFloat,
          texture: SKTexture?,
@@ -80,12 +80,12 @@ class ImmovableNode: SKSpriteNode {
 
 // MARK: - Enums
 
-enum ControlAreaHorizontalAlignment {
+enum AreaHorizontalAlignment {
     case left
     case right
 }
 
-enum ControlAreaVerticalAlignment {
+enum AreaVerticalAlignment {
     case top
     case bottom
 }

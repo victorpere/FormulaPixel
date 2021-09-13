@@ -22,8 +22,8 @@ class TrackScene: SKScene {
     override init(size: CGSize) {
         self.brake = Pedal(for: size, height: 100, widthMultiplier: 0.1, horizontalAlignment: .left, verticalAlignment: .bottom, horizontalOffset: 0, verticalOffset: 0, texture: nil, color: .red)
         self.throttle = Pedal(for: size, height: 100, widthMultiplier: 0.20, horizontalAlignment: .left, verticalAlignment: .bottom, horizontalOffset: size.width * 0.1, verticalOffset: 0, texture: nil, color: .blue)
-                
-        self.steering = Steering(for: size, widthMultiplier: 0.7)
+        self.steering = Steering(for: size, widthMultiplier: 0.4, horizontalAlignment: .right, verticalAlignment: .bottom, horizontalOffset: -30, verticalOffset: 0)
+        
         self.playerCar = PlayerCar()
         self.track = Track(trackId: "00", sceneSize: size)
         
@@ -36,6 +36,8 @@ class TrackScene: SKScene {
         self.addChild(self.throttle)
         self.addChild(self.brake)
         self.addChild(self.steering)
+        
+        self.physicsWorld.contactDelegate = self
         
         self.setup()
     }
@@ -104,5 +106,17 @@ class TrackScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         self.playerCar.drive()
+    }
+}
+
+extension TrackScene: SKPhysicsContactDelegate {
+    func didBegin(_ contact: SKPhysicsContact) {
+        print("contact \(contact.contactNormal)")
+        let bodies = [contact.bodyA, contact.bodyB]
+        for body in bodies {
+            if body === self.playerCar.physicsBody {
+                self.playerCar.didCollide(with: contact.contactNormal)
+            }
+        }
     }
 }

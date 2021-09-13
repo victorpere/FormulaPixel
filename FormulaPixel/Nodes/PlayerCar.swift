@@ -35,7 +35,7 @@ class PlayerCar: Car {
     
     // TODO: calculate acceleration based on power, mass and friction (grip)
     fileprivate var acceleration: CGFloat {
-        return 0.5
+        return 0.4
     }
     
     // TODO: calculate deceleration based on mass and friction
@@ -48,27 +48,40 @@ class PlayerCar: Car {
         return 0.5
     }
     
+    // TODO: calculate based on mass and friction
+    fileprivate var collisionDeceleration: CGFloat {
+        return 0.2
+    }
+    
     fileprivate var rotationSpeed: CGFloat {
-        self.steeringAngle * self.steeringRatio * sqrt(self.currentSpeed)
+        self.steeringAngle * self.steeringRatio * sqrt(self.linearSpeed)
+    }
+    
+    fileprivate var velocity: CGVector {
+        CGVector(value: self.linearSpeed, angle: self.zRotation)
     }
     
     // MARK: - Methods
     
     func drive() {
-        self.currentSpeed += self.throttleValue * self.pedalRatio * self.acceleration
-        self.currentSpeed -= self.deceleration
-        self.currentSpeed -= self.brakeValue * self.pedalRatio * self.braking
-        self.currentSpeed = self.currentSpeed.bound(between: 0, and: self.maxSpeed)
+        self.linearSpeed += self.throttleValue * self.pedalRatio * self.acceleration
+        self.linearSpeed -= self.deceleration
+        self.linearSpeed -= self.brakeValue * self.pedalRatio * self.braking
+        self.linearSpeed = self.linearSpeed.bound(between: 0, and: self.maxSpeed)
         
-        if self.currentSpeed > 0 {
+        if self.linearSpeed > 0 {
             self.zRotation += self.rotationSpeed
-            let vector = CGVector(value: self.currentSpeed, angle: self.zRotation)
             
-            self.position.x += vector.dx
-            self.position.y += vector.dy
+            self.position.x += self.velocity.dx
+            self.position.y += self.velocity.dy
         }
         
         self.unwindSteering()
+    }
+    
+    func didCollide(with collisionNormal: CGVector) {
+        // TODO: apply vector to reduce speed
+        self.linearSpeed -= self.collisionDeceleration
     }
     
     // MARK: - Private methods
