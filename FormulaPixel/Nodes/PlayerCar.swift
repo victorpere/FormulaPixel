@@ -114,7 +114,16 @@ class PlayerCar: Car {
     
     func didCollide(with collisionNormal: CGVector) {
         // TODO: apply vector to reduce speed
-        self.linearSpeed -= self.collisionDeceleration
+        var speed = self.linearSpeed
+        if speed == 0 {
+            return
+        } else if speed > 0 {
+            speed -= self.collisionDeceleration
+            self.linearSpeed = speed.bound(between: 0, and: self.maxSpeed)
+        } else {
+            speed += self.collisionDeceleration
+            self.linearSpeed = speed.bound(between: -self.maxReverseSpeed, and: 0)
+        }
     }
     
     // MARK: - Private methods
