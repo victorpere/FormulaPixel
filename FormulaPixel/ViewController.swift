@@ -11,6 +11,8 @@ import SpriteKit
 class ViewController: UIViewController {
     
     var skView: SKView!
+    
+    private var configured = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +23,12 @@ class ViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
+        if self.configured {
+            return
+        }
+        
+        self.configured = true
         
         let safeFrame = CGRect(x: self.view.safeAreaInsets.left,
                                 y: self.view.safeAreaInsets.top,

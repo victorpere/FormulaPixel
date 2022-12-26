@@ -17,6 +17,8 @@ class TrackScene: SKScene {
     let playerCar: PlayerCar
     let track: Track
     
+    let cars: [Driveable]
+    
     // MARK: - Initializers
     
     override init(size: CGSize) {
@@ -40,8 +42,12 @@ class TrackScene: SKScene {
         
         
         
-        self.playerCar = PlayerCar()
+        self.playerCar = PlayerCar(named: "car0", withImageNamed: "car_team01_top")
         self.track = Track(trackId: "00", sceneSize: size)
+        
+        let compCar = PlayerCar(named: "car1", withImageNamed: "car_team01_top")
+        
+        self.cars = [self.playerCar as Driveable, compCar as Driveable]
         
         super.init(size: size)
         
@@ -53,9 +59,14 @@ class TrackScene: SKScene {
         self.addChild(self.brake)
         self.addChild(self.steering)
         
+        self.addChild(compCar)
+        
         self.physicsWorld.contactDelegate = self
         
         self.setup()
+        
+        compCar.position = CGPoint(x: 96, y: 300)
+        compCar.zPosition = self.track.zPosition + 1
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -127,7 +138,11 @@ class TrackScene: SKScene {
     // MARK: - Scene methods
     
     override func update(_ currentTime: TimeInterval) {
-        self.playerCar.drive()
+        for car in self.cars {
+            DispatchQueue.global(qos: .userInteractive).async {
+                car.drive()
+            }
+        }
     }
 }
 

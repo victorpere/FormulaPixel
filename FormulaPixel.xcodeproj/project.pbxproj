@@ -32,6 +32,7 @@
 		57A716BE26EE88FF0073C0E1 /* ImmovableArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A716BD26EE88FE0073C0E1 /* ImmovableArea.swift */; };
 		57A716C126EEAD510073C0E1 /* ContactDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A716C026EEAD510073C0E1 /* ContactDelegate.swift */; };
 		57A716C426EED9450073C0E1 /* ObjectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A716C326EED9450073C0E1 /* ObjectType.swift */; };
+		57F5DA9129588FA6003EBB68 /* Driveable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F5DA9029588FA6003EBB68 /* Driveable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		57A716BD26EE88FE0073C0E1 /* ImmovableArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmovableArea.swift; sourceTree = "<group>"; };
 		57A716C026EEAD510073C0E1 /* ContactDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDelegate.swift; sourceTree = "<group>"; };
 		57A716C326EED9450073C0E1 /* ObjectType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectType.swift; sourceTree = "<group>"; };
+		57F5DA9029588FA6003EBB68 /* Driveable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driveable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 			children = (
 				57A716A826EA930E0073C0E1 /* Control.swift */,
 				57A716B826EE69140073C0E1 /* Surface.swift */,
+				57F5DA9029588FA6003EBB68 /* Driveable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				57A716A026E7F7880073C0E1 /* Pedal.swift in Sources */,
 				57A716A426E7F9CE0073C0E1 /* Car.swift in Sources */,
 				57A7169E26E7EFF60073C0E1 /* ControlArea.swift in Sources */,
+				57F5DA9129588FA6003EBB68 /* Driveable.swift in Sources */,
 				57A0F3BF26E02980002D2D8E /* FormulaPixel.xcdatamodeld in Sources */,
 				57A716A926EA930E0073C0E1 /* Control.swift in Sources */,
 				57A716B726ED96440073C0E1 /* BrakePedal.swift in Sources */,

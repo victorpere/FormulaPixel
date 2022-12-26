@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class PlayerCar: Car {
+class PlayerCar: Car, Driveable {
     
     // MARK: - Properties
     
@@ -18,7 +18,7 @@ class PlayerCar: Car {
     
     // MARK: - Private properties
     
-    fileprivate let steeringRatio: CGFloat = 0.02
+    fileprivate let steeringRatio: CGFloat = 0.2
     fileprivate let pedalRatio: CGFloat = 0.1
     
     fileprivate var steeringAngle: CGFloat {
@@ -35,17 +35,17 @@ class PlayerCar: Car {
     
     // TODO: calculate acceleration based on power, mass and friction (grip)
     fileprivate var acceleration: CGFloat {
-        return 0.4
+        return 120
     }
     
     // TODO: calculate deceleration based on mass and friction
     fileprivate var deceleration: CGFloat {
-        return 0.02
+        return 2
     }
     
     // TODO: calculate braking based on braking power, mass and friction
     fileprivate var braking: CGFloat {
-        return 0.4
+        return 120
     }
     
     // TODO: calculate based on mass and friction
@@ -61,24 +61,10 @@ class PlayerCar: Car {
         CGVector(value: self.linearSpeed, angle: self.zRotation)
     }
     
-    fileprivate var debugNode: SKLabelNode
+    
     
     // MARK: - Initializers
     
-    override init() {
-        self.debugNode = SKLabelNode(fontNamed: "Helvetica")
-        super.init()
-        
-        self.debugNode.isHidden = true
-        self.debugNode.fontColor = .green
-        self.debugNode.fontSize = 14
-        self.debugNode.position = self.position
-        self.addChild(self.debugNode)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     // MARK: - Methods
     
@@ -101,10 +87,10 @@ class PlayerCar: Car {
         }
         
         if self.linearSpeed != 0 {
-            self.zRotation += self.rotationSpeed
-
-            self.position.x += self.velocity.dx
-            self.position.y += self.velocity.dy
+            DispatchQueue.main.async {
+                self.physicsBody?.angularVelocity = self.rotationSpeed
+                self.physicsBody?.velocity = self.velocity
+            }
         }
         
         self.unwindSteering()
@@ -113,17 +99,8 @@ class PlayerCar: Car {
     }
     
     func didCollide(with collisionNormal: CGVector) {
-        // TODO: apply vector to reduce speed
-        var speed = self.linearSpeed
-        if speed == 0 {
-            return
-        } else if speed > 0 {
-            speed -= self.collisionDeceleration
-            self.linearSpeed = speed.bound(between: 0, and: self.maxSpeed)
-        } else {
-            speed += self.collisionDeceleration
-            self.linearSpeed = speed.bound(between: -self.maxReverseSpeed, and: 0)
-        }
+        // TODO: effects
+
     }
     
     // MARK: - Private methods
