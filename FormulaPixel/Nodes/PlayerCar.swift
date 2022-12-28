@@ -69,24 +69,18 @@ class PlayerCar: Car, Driveable {
     // MARK: - Methods
     
     func drive() {
-        var speed = self.linearSpeed
-        if self.linearSpeed <= 0 &&
-            (self.brake?.isBeingApplied ?? false) &&
-            !(self.throttle?.isBeingApplied ?? false) {
-            // Reverse
-            speed -= self.brakeValue * self.pedalRatio * self.acceleration
-            speed += self.deceleration
-            self.linearSpeed = speed.bound(between: -self.maxReverseSpeed, and: 0)
-        } else if self.linearSpeed > 0  ||
-                    (self.throttle?.isBeingApplied ?? false) ||
-                    (self.brake?.isBeingApplied ?? false) {
-            speed += self.throttleValue * self.pedalRatio * self.acceleration
-            speed -= self.deceleration
-            speed -= self.brakeValue * self.pedalRatio * self.braking
-            self.linearSpeed = speed.bound(between: 0, and: self.maxSpeed)
-        }
+        self.linearSpeed += self.throttleValue * self.pedalRatio * self.acceleration
+        - self.brakeValue * self.pedalRatio * self.acceleration
         
         if self.linearSpeed != 0 {
+            if self.linearSpeed > 0 {
+                self.linearSpeed -= self.deceleration
+                self.linearSpeed = self.linearSpeed.bound(between: 0, and: self.maxSpeed)
+            } else {
+                self.linearSpeed += self.deceleration
+                self.linearSpeed = self.linearSpeed.bound(between: -self.maxReverseSpeed, and: 0)
+            }
+        
             DispatchQueue.main.async {
                 self.physicsBody?.angularVelocity = self.rotationSpeed * (self.linearSpeed < 0 ? -1 : 1)
                 self.physicsBody?.velocity = self.velocity
