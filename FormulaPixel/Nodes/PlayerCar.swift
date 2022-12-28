@@ -35,17 +35,17 @@ class PlayerCar: Car, Driveable {
     
     // TODO: calculate acceleration based on power, mass and friction (grip)
     fileprivate var acceleration: CGFloat {
-        return 120
+        return self.power * self.grip / self.mass
     }
     
     // TODO: calculate deceleration based on mass and friction
     fileprivate var deceleration: CGFloat {
-        return 2
+        return self.mass * self.grip
     }
     
     // TODO: calculate braking based on braking power, mass and friction
     fileprivate var braking: CGFloat {
-        return 120
+        return self.brakes * self.grip / self.mass
     }
     
     // TODO: calculate based on mass and friction
@@ -88,19 +88,20 @@ class PlayerCar: Car, Driveable {
         
         if self.linearSpeed != 0 {
             DispatchQueue.main.async {
-                self.physicsBody?.angularVelocity = self.rotationSpeed
+                self.physicsBody?.angularVelocity = self.rotationSpeed * (self.linearSpeed < 0 ? -1 : 1)
                 self.physicsBody?.velocity = self.velocity
             }
         }
         
         self.unwindSteering()
         
-        self.debugNode.text = String(format: "%.1f", self.steeringAngle)
+        self.debugNode.text = self.debugNodeText
     }
     
     func didCollide(with collisionNormal: CGVector) {
         // TODO: effects
 
+        
     }
     
     // MARK: - Private methods

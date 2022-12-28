@@ -17,6 +17,7 @@
 		57A0F3CF26E02983002D2D8E /* FormulaPixelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A0F3CE26E02983002D2D8E /* FormulaPixelTests.swift */; };
 		57A0F3DA26E02983002D2D8E /* FormulaPixelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A0F3D926E02983002D2D8E /* FormulaPixelUITests.swift */; };
 		57A0F3E826E029F6002D2D8E /* TrackScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A0F3E726E029F6002D2D8E /* TrackScene.swift */; };
+		57A4DFAF295A19E100C65118 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A4DFAE295A19E100C65118 /* Constants.swift */; };
 		57A7169C26E7EC710073C0E1 /* Steering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A7169B26E7EC710073C0E1 /* Steering.swift */; };
 		57A7169E26E7EFF60073C0E1 /* ControlArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A7169D26E7EFF60073C0E1 /* ControlArea.swift */; };
 		57A716A026E7F7880073C0E1 /* Pedal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A7169F26E7F7880073C0E1 /* Pedal.swift */; };
@@ -69,6 +70,7 @@
 		57A0F3D926E02983002D2D8E /* FormulaPixelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaPixelUITests.swift; sourceTree = "<group>"; };
 		57A0F3DB26E02984002D2D8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57A0F3E726E029F6002D2D8E /* TrackScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackScene.swift; sourceTree = "<group>"; };
+		57A4DFAE295A19E100C65118 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		57A7169B26E7EC710073C0E1 /* Steering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steering.swift; sourceTree = "<group>"; };
 		57A7169D26E7EFF60073C0E1 /* ControlArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlArea.swift; sourceTree = "<group>"; };
 		57A7169F26E7F7880073C0E1 /* Pedal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pedal.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		57A0F3B326E02980002D2D8E /* FormulaPixel */ = {
 			isa = PBXGroup;
 			children = (
+				57A4DFAD295A19C600C65118 /* Config */,
 				57A716C226EED90D0073C0E1 /* Enums */,
 				57A716BF26EEAD210073C0E1 /* Delegates */,
 				57A716BA26EE84EB0073C0E1 /* Tracks */,
@@ -170,6 +173,14 @@
 				57A0F3DB26E02984002D2D8E /* Info.plist */,
 			);
 			path = FormulaPixelUITests;
+			sourceTree = "<group>";
+		};
+		57A4DFAD295A19C600C65118 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				57A4DFAE295A19E100C65118 /* Constants.swift */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 		57A7169A26E7EC260073C0E1 /* Nodes */ = {
@@ -369,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57A0F3B926E02980002D2D8E /* ViewController.swift in Sources */,
+				57A4DFAF295A19E100C65118 /* Constants.swift in Sources */,
 				57A716C426EED9450073C0E1 /* ObjectType.swift in Sources */,
 				57A716B926EE69140073C0E1 /* Surface.swift in Sources */,
 				57A716A026E7F7880073C0E1 /* Pedal.swift in Sources */,
