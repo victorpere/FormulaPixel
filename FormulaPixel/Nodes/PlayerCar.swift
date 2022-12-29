@@ -55,7 +55,6 @@ class PlayerCar: Car, Driveable {
     
     fileprivate var rotationSpeed: CGFloat {
         self.steeringAngle * self.steeringRatio * CGFloat(self.movingDirection.rawValue)
-//        CGFloat(MovingDirection(withSpeed: self.linearSpeed).rawValue)
     }
     
     fileprivate var velocity: CGVector {
@@ -63,19 +62,10 @@ class PlayerCar: Car, Driveable {
     }
     
     fileprivate var movingDirection: MovingDirection {
-        if self.linearSpeed == 0 {
-            return .stopped
-        }
-        
-        if self.linearSpeed > 0 {
-            return .forward
-        }
-        
-        return .backward
+        MovingDirection(withSpeed: self.linearSpeed)
     }
     
-    
-    
+        
     // MARK: - Initializers
     
     

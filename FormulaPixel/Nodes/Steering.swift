@@ -79,12 +79,12 @@ class Steering: ControlArea, Control {
     }
     
     func beginApplying() {
-        print("beginApplying Steering")
+        //print("beginApplying Steering")
         self.isBeingApplied = true
     }
     
     func endApplying() {
-        print("endApplying Steering")
+        //print("endApplying Steering")
         self.isBeingApplied = false
     }
 }

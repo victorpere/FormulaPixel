@@ -15,12 +15,10 @@ enum MovingDirection: Int8 {
     init(withSpeed speed: CGFloat) {
         if speed == 0 {
             self = .stopped
-        }
-        
-        if speed > 0 {
+        } else if speed > 0 {
             self = .forward
+        } else {
+            self = .backward
         }
-        
-        self = .backward
     }
 }
