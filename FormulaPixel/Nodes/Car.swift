@@ -50,7 +50,12 @@ class Car: PhysicalObject {
         self.physicsBody?.categoryBitMask = ObjectType.car.rawValue
         self.physicsBody?.contactTestBitMask = ObjectType.track.rawValue | ObjectType.car.rawValue
         
+        #if DEBUG
         self.debugNode.isHidden = false
+        #else
+        self.debugNode.isHidden = true
+        #endif
+        
         self.debugNode.fontColor = .green
         self.debugNode.fontSize = 14
         self.debugNode.position = CGPoint(x: self.position.x, y: self.position.y - 35)

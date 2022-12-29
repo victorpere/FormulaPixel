@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5792AECA295DE27A008039E0 /* MovingDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5792AEC9295DE27A008039E0 /* MovingDirection.swift */; };
 		57A0F3B526E02980002D2D8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A0F3B426E02980002D2D8E /* AppDelegate.swift */; };
 		57A0F3B726E02980002D2D8E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A0F3B626E02980002D2D8E /* SceneDelegate.swift */; };
 		57A0F3B926E02980002D2D8E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A0F3B826E02980002D2D8E /* ViewController.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5792AEC9295DE27A008039E0 /* MovingDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingDirection.swift; sourceTree = "<group>"; };
 		57A0F3B126E02980002D2D8E /* FormulaPixel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FormulaPixel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57A0F3B426E02980002D2D8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57A0F3B626E02980002D2D8E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				57A716C326EED9450073C0E1 /* ObjectType.swift */,
+				5792AEC9295DE27A008039E0 /* MovingDirection.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				57A716C126EEAD510073C0E1 /* ContactDelegate.swift in Sources */,
 				57A716BC26EE85030073C0E1 /* Track.swift in Sources */,
 				57A716A626E7F9EC0073C0E1 /* PlayerCar.swift in Sources */,
+				5792AECA295DE27A008039E0 /* MovingDirection.swift in Sources */,
 				57A716AC26EA95A50073C0E1 /* CoreGraphics.swift in Sources */,
 				57A7169C26E7EC710073C0E1 /* Steering.swift in Sources */,
 				57A716B526ED961E0073C0E1 /* Throttle.swift in Sources */,

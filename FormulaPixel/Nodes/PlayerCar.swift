@@ -18,8 +18,8 @@ class PlayerCar: Car, Driveable {
     
     // MARK: - Private properties
     
-    fileprivate let steeringRatio: CGFloat = 0.2
-    fileprivate let pedalRatio: CGFloat = 0.1
+    fileprivate let steeringRatio: CGFloat = Constants.Car.steeringRatio
+    fileprivate let pedalRatio: CGFloat = Constants.Car.pedalRatio
     
     fileprivate var steeringAngle: CGFloat {
         self.steeringControl?.value ?? 0
@@ -54,11 +54,24 @@ class PlayerCar: Car, Driveable {
     }
     
     fileprivate var rotationSpeed: CGFloat {
-        self.steeringAngle * self.steeringRatio * sqrt(self.linearSpeed.magnitude)
+        self.steeringAngle * self.steeringRatio * CGFloat(self.movingDirection.rawValue)
+//        CGFloat(MovingDirection(withSpeed: self.linearSpeed).rawValue)
     }
     
     fileprivate var velocity: CGVector {
         CGVector(value: self.linearSpeed, angle: self.zRotation)
+    }
+    
+    fileprivate var movingDirection: MovingDirection {
+        if self.linearSpeed == 0 {
+            return .stopped
+        }
+        
+        if self.linearSpeed > 0 {
+            return .forward
+        }
+        
+        return .backward
     }
     
     
@@ -80,11 +93,12 @@ class PlayerCar: Car, Driveable {
                 self.linearSpeed += self.deceleration
                 self.linearSpeed = self.linearSpeed.bound(between: -self.maxReverseSpeed, and: 0)
             }
+
+        }
         
-            DispatchQueue.main.async {
-                self.physicsBody?.angularVelocity = self.rotationSpeed * (self.linearSpeed < 0 ? -1 : 1)
-                self.physicsBody?.velocity = self.velocity
-            }
+        DispatchQueue.main.async {
+            self.physicsBody?.angularVelocity = self.rotationSpeed
+            self.physicsBody?.velocity = self.velocity
         }
         
         self.unwindSteering()

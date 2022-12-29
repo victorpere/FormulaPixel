@@ -15,9 +15,11 @@ struct Constants {
         static let maxSpeed: CGFloat = 150
         static let maxReverseSpeed: CGFloat = 50
         static let steeringUnwindCoefficient: CGFloat = 0.005
-        static let power: CGFloat = 500
+        static let power: CGFloat = 400
         static let grip: CGFloat = 2
         static let brakes: CGFloat = 500
+        static let steeringRatio: CGFloat = 1.8
+        static let pedalRatio: CGFloat = 0.1
         
         struct PhysicsBody {
             static let mass: CGFloat = 1
