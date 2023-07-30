@@ -28,7 +28,8 @@ class Track: ImmovableArea {
         
         self.physicsBody = SKPhysicsBody(bodies: physicsBodies)
         self.physicsBody?.isDynamic = false
-        self.physicsBody?.friction = 1.0
+        self.physicsBody?.friction = Constants.Track.PhysicsBody.friction
+        self.physicsBody?.restitution = Constants.Track.PhysicsBody.restitution
         self.physicsBody?.categoryBitMask = ObjectType.track.rawValue
         self.physicsBody?.contactTestBitMask = ObjectType.car.rawValue
     }
